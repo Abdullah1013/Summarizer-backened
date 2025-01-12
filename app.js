@@ -6,12 +6,6 @@ const cors = require('cors');
 
 const app = express();
 
-// CORS configuration
-app.use(cors({
-  origin: 'http://localhost:3000', // Replace with your frontend URL
-  methods: ['GET', 'POST'],
-  allowedHeaders: ['Content-Type'],
-}));
 
 // Create the "uploads" folder if it doesn't exist
 if (!fs.existsSync('./uploads')) {
