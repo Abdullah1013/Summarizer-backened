@@ -1,9 +1,10 @@
 const express = require('express');
+require('dotenv').config();
 const fs = require('fs');
 const { connectDB } = require("./config/db");
 const uploadRoute = require('./routes/fileUploadroute');
 const cors = require('cors');
-
+const port = process.env.PORT;
 const app = express();
 
 // Create the "uploads" folder if it doesn't exist
@@ -32,5 +33,6 @@ app.get('/test', (req, res) => {
 // Database connection
 connectDB();
 
-// Export the app for Vercel
-module.exports = app;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
+});
